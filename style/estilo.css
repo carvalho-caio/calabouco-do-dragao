@@ -86,3 +86,66 @@ h1
     font-size: 1.3rem;
     font-weight: bolder;
 }
+
+.logs-chat
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 90%;
+    border-bottom: 3px solid bisque;
+    overflow: scroll;
+}
+
+.logs
+{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.input-area
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+}
+
+.input-jogador
+{
+    text-align: center;
+    color: bisque;
+    width: 70%;
+    height: 60%;
+    margin: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    align-self: left;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.enviar
+{
+    right: 0;
+    bottom: 0;
+    color: bisque;
+    background-color: transparent;
+    width: 20%;
+    height: 60%;
+    align-self: center;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow:  4px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.enviar:hover
+{
+    background-color: #fff;
+    color: black;
+}
