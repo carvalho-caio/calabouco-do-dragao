@@ -135,7 +135,6 @@ h1
     right: 0;
     bottom: 0;
     color: bisque;
-    background-color: transparent;
     width: 20%;
     height: 60%;
     align-self: center;
@@ -148,4 +147,55 @@ h1
 {
     background-color: #fff;
     color: black;
+}
+
+.intro-screen
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+
+.img-logo
+{
+    height: 100%;
+    width: 100%;
+}
+
+.iniciar
+{
+    position: absolute;
+    left: 47%;
+    top: 70%;
+    padding: 10px;
+    background-color: transparent;
+    color: bisque;
+    border-radius: 10px;
+    background-color: #333;
+    font-weight: bold;
+}
+
+.iniciar:hover
+{
+    background-color: #fff;
+    color: black;
+}
+
+
+
+
+
+
+
+.esta-visivel
+{
+    visibility: visible;
+}
+
+.esta-invisivel
+{
+    visibility: hidden;
 }
