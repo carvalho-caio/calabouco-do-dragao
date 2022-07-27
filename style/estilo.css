@@ -184,7 +184,42 @@ h1
     color: black;
 }
 
+.gameover-screen
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
 
+.game-over-logo
+{
+    height: 100%;
+    width: 100%;
+    z-index: 200;
+}
+
+.btn-refresh
+{
+    position: absolute;
+    left: 47%;
+    top: 60%;
+    padding: 20px;
+    background-color: transparent;
+    color: bisque;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    background-color: #333;
+    font-weight: bold;
+}
+
+.btn-refresh:hover
+{
+    background-color: #fff;
+    color: black;
+}
 
 
 
