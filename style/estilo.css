@@ -221,7 +221,23 @@ h1
     color: black;
 }
 
+.vida-holder
+{
+    position: absolute;
+    width: 70%;
+    height: 75%;
+    z-index: 20;
+}
 
+.vidas-imagem
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10%;
+    margin: 10px;
+    z-index: 20;
+}
 
 
 
