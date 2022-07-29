@@ -189,7 +189,7 @@ h1
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 100;
+    z-index: 200;
     width: 100%;
     height: 100%;
 }
@@ -237,6 +237,45 @@ h1
     width: 10%;
     margin: 10px;
     z-index: 20;
+}
+
+.potion-holder-position
+{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    z-index: 100;
+}
+
+.potion-holder
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.imagem-pocao
+{
+    width: 15%;
+    height: 15%;
+    margin-right: 10px;
+}
+
+.potion-flex
+{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 10px;
+}
+
+.quantidade-pocao
+{
+    font-weight: bold;
+    color: beige;
+    text-align: center;
+    align-self: center;
+    font-size: 1.5rem;
 }
 
 

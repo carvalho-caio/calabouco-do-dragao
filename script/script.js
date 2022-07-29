@@ -14,32 +14,71 @@ let isDead = false;
 const BtnGameOver = document.querySelector('#btn-game-over');
 const GameOverScreen = document.querySelector('#game-over');
 
+//poções
+const Pocao = document.querySelector('#pocoes');
+let QuantidadePocao = 3;
+
+//Tratamento do input
+let ValorInput = 0;
 
 
 const testando = document.querySelector('#testando');
 
+
+//função do botão de input;
 botao.addEventListener('click', () => {
 
-    let NovoTeste2 = testando.cloneNode(false);
-    NovoTeste2.innerHTML = input.value;
+    AdicionarLog();
+    InputTreatment();
 
-    logs.appendChild(NovoTeste2);
-
-    if(input.value == "vida")
+    if (ValorInput == "AK1o3")
     {
        QuantidadeDeVidas--;
+    } else if(ValorInput == "gk!]L")
+    {
+        Cura();
     }
 
-    input.value = "";
-
-    
+    ClearInput();
 })
 
+//Adiciona texto no campo de LOG;
+function AdicionarLog()
+{
+    let NovoLog = testando.cloneNode(false);
+    NovoLog.innerHTML = input.value;
+
+    logs.appendChild(NovoLog);
+}
+
+//Limpa a zona de input;
+function ClearInput()
+{
+    input.value = "";
+}
+
+//Trata do input do jogador, para melhor funcionamento do código;
+function InputTreatment()
+{
+    if(input.value === "vida")
+    {
+        ValorInput = "AK1o3";
+    } else if (input.value === "cura")
+    {
+        ValorInput = "gk!]L";
+    } else
+    {
+        ValorInput = 0;
+    }
+}
+
+
+//Ao clicar em start, remove a tela de Inico;
 BotaoStart.addEventListener('click', () => {
     LogoScreen.classList.add("esta-invisivel");
 })
 
-//Função que faz o calculo de dano e o updte visual na vida do jogador;
+//Função que faz o calculo de dano e o update visual na vida do jogador;
 function Damage ()
 {
     if(QuantidadeDeVidas == 3)
@@ -67,6 +106,33 @@ function EstaMorto()
     }
 }
 
+//Atualização de poções na tela
+function UpdatePotion()
+{
+    Pocao.innerHTML = QuantidadePocao;
+}
+
+//Função de Cura utilizando Poção
+function Cura()
+{
+
+    if(QuantidadePocao > 0)
+    {
+        if(QuantidadeDeVidas >= 3)
+        {
+            return;
+        } else if(QuantidadeDeVidas <= 0)
+        {
+            return;
+        } else
+        {
+            QuantidadePocao--;
+
+            QuantidadeDeVidas++;
+        }
+    }
+}
+
 
 
 
@@ -77,6 +143,7 @@ function UpdateGame()
 {
     EstaMorto();
     Damage();
+    UpdatePotion();
 }
 
-setInterval(UpdateGame, 100);
+setInterval(UpdateGame, 10);
