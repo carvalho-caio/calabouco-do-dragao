@@ -1,54 +1,56 @@
+//Background
 const imagem = document.querySelector("#background");
+const LogoScreen = document.querySelector('#game-start');
+const BotaoStart = document.querySelector('#start-game');
+const GameText = document.querySelector('#game-text');
+
+//Logs
 const logs = document.querySelector('#logs-game');
 const input = document.querySelector('#input-player');
 const botao = document.querySelector('#btn');
-const BotaoStart = document.querySelector('#start-game');
-const LogoScreen = document.querySelector('#game-start');
 
-//vidas
+//Vidas
 const Vidas = document.querySelector('#vidas')
 let QuantidadeDeVidas = 3;
 let isDead = false;
 
-//tela de game over;
+//Tela de game over;
 const BtnGameOver = document.querySelector('#btn-game-over');
 const GameOverScreen = document.querySelector('#game-over');
 
-//poções
+//Poções
 const Pocao = document.querySelector('#pocoes');
 let QuantidadePocao = 3;
 
-//Tratamento do input
-let ValorInput = 0;
-
-
-const testando = document.querySelector('#testando');
+//Game log managment
+const GameLog = document.querySelector('#Game-Log');
 
 
 //função do botão de input;
 botao.addEventListener('click', () => {
 
-    AdicionarLog();
-    InputTreatment();
-
-    if (ValorInput == "AK1o3")
-    {
-       QuantidadeDeVidas--;
-    } else if(ValorInput == "gk!]L")
-    {
-        Cura();
-    }
+    AdicionarLogJogador();
 
     ClearInput();
 })
 
 //Adiciona texto no campo de LOG;
-function AdicionarLog()
+function AdicionarLogJogador()
 {
-    let NovoLog = testando.cloneNode(false);
+    let NovoLog = GameLog.cloneNode(false);
     NovoLog.innerHTML = input.value;
+    NovoLog.classList.add("cor-log-jogador");
 
     logs.appendChild(NovoLog);
+}
+
+function AdicionarLogDev(texto)
+{
+    let NovissimoLog = GameLog.cloneNode(false);
+    NovissimoLog.innerHTML = texto;
+    NovissimoLog.classList.add("cor-log-dev");
+
+    logs.appendChild(NovissimoLog);
 }
 
 //Limpa a zona de input;
@@ -57,19 +59,16 @@ function ClearInput()
     input.value = "";
 }
 
-//Trata do input do jogador, para melhor funcionamento do código;
-function InputTreatment()
+//Trata do input do jogador, quando explorando;
+function InputTreatmentExplore()
 {
-    if(input.value === "vida")
-    {
-        ValorInput = "AK1o3";
-    } else if (input.value === "cura")
-    {
-        ValorInput = "gk!]L";
-    } else
-    {
-        ValorInput = 0;
-    }
+
+}
+
+//Trata do input do jogador, quando em batalha;
+function InputTreatmentBattle()
+{
+
 }
 
 

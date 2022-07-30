@@ -278,6 +278,16 @@ h1
     font-size: 1.5rem;
 }
 
+.cor-log-jogador
+{
+    color: lightgreen;
+}
+
+.cor-log-dev
+{
+    color: lightcoral;
+}
+
 
 
 .esta-visivel
