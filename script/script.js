@@ -30,7 +30,6 @@ const GameLog = document.querySelector('#Game-Log');
 botao.addEventListener('click', () => {
 
     AdicionarLogJogador();
-
     ClearInput();
 })
 
@@ -44,6 +43,13 @@ function AdicionarLogJogador()
     logs.appendChild(NovoLog);
 }
 
+//Função que vai contar a "historia" do jogo;
+function MudarTextoPrincipal(texto1)
+{
+    GameText.innerHTML = texto1;
+}
+
+//Adiciona um log via código;
 function AdicionarLogDev(texto)
 {
     let NovissimoLog = GameLog.cloneNode(false);
@@ -58,19 +64,6 @@ function ClearInput()
 {
     input.value = "";
 }
-
-//Trata do input do jogador, quando explorando;
-function InputTreatmentExplore()
-{
-
-}
-
-//Trata do input do jogador, quando em batalha;
-function InputTreatmentBattle()
-{
-
-}
-
 
 //Ao clicar em start, remove a tela de Inico;
 BotaoStart.addEventListener('click', () => {
@@ -144,5 +137,6 @@ function UpdateGame()
     Damage();
     UpdatePotion();
 }
+
 
 setInterval(UpdateGame, 10);
