@@ -27,11 +27,15 @@ const GameLog = document.querySelector('#Game-Log');
 
 
 //função do botão de input;
-botao.addEventListener('click', () => {
+botao.addEventListener('click', LogandoTexto);
 
+//test
+function LogandoTexto()
+{
     AdicionarLogJogador();
+
     ClearInput();
-})
+}
 
 //Adiciona texto no campo de LOG;
 function AdicionarLogJogador()
@@ -112,7 +116,7 @@ function Cura()
     {
         if(QuantidadeDeVidas >= 3)
         {
-            return;
+            AdicionarLogDev("Já está com a vida cheia!");
         } else if(QuantidadeDeVidas <= 0)
         {
             return;
@@ -125,9 +129,63 @@ function Cura()
     }
 }
 
+function Prologo()
+{
+    MudarTextoPrincipal("Você se depara com uma masmorra, e, escuta uma voz abafada pedindo socorro! Como um bom aventureiro, você adentra a masmorra.");
+    AdicionarLogDev("Comandos: ");
+    AdicionarLogDev("Proximo (Vai para a proxima sala!)");
 
+    botao.removeEventListener('click', LogandoTexto);
 
+    let callback = () => {
+        if(input.value == 'Proximo')
+        {
+            LogandoTexto();
+            FaseInicio(callback);
+        }else
+        {
+            LogandoTexto();
+            AdicionarLogDev("Comando invalido!");
+        }
+    }
 
+    botao.addEventListener('click', callback);
+}
+
+function FaseInicio(callback)
+{
+
+    MudarTextoPrincipal("Esse é o inicio de tudo, seu corno!");
+    AdicionarLogDev("Comandos disponiveis:");
+    AdicionarLogDev("Proximo (Avança para a proxima sala!)");
+    AdicionarLogDev("Curar (Utiliza uma de suas poções para recuperar vida.)");
+
+    imagem.src = "imagem/teste.jpg"
+    
+    botao.removeEventListener('click', callback);
+
+    const callback1 = () => {
+        if(input.value == "Proximo")
+        {
+            LogandoTexto();
+            FaseL1(callback1);
+        } else if(input.value == "Curar")
+        {
+            LogandoTexto();
+            Cura();
+            FaseInicio();
+        }
+    }
+
+    botao.addEventListener('click', callback1);
+}
+
+function FaseL1(callback)
+{
+    imagem.src = "imagem/teste2.jpg";
+}
+
+Prologo();
 
 
 //Função de update do jogo;
@@ -137,6 +195,8 @@ function UpdateGame()
     Damage();
     UpdatePotion();
 }
+
+
 
 
 setInterval(UpdateGame, 10);
