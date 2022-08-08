@@ -21,7 +21,7 @@ const GameOverScreen = document.querySelector('#game-over');
 
 //Poções
 const Pocao = document.querySelector('#pocoes');
-let QuantidadePocao = 3;
+let QuantidadePocao = 2;
 
 //Game log managment
 const GameLog = document.querySelector('#Game-Log');
@@ -449,4 +449,4 @@ function UpdateGame()
     UpdatePotion();
 }
 
-setInterval(UpdateGame, 10);
+setInterval(UpdateGame, 5);
